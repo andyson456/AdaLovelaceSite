@@ -29,7 +29,7 @@ namespace AdaLovelaceSite.Models
 				BirthDate = "December 10, 1815",
 				DeathDate = "November 27, 1852",
 				Children = 3,
-				RecognizedFor = "Mathematics, Computing and Writing",
+				RecognizedFor = "Mathematics, Computing, Writing",
 			};
 			People.Add(person1);
 
@@ -62,7 +62,7 @@ namespace AdaLovelaceSite.Models
 				BirthDate = "December 11, 1781",
 				DeathDate = "February 10, 1868",
 				Children = 5,
-				RecognizedFor = "Mathematics, Physics and Astronomy",
+				RecognizedFor = "Mathematics, Physics, Astronomy",
 			};
 			People.Add(person4);
 
@@ -84,7 +84,7 @@ namespace AdaLovelaceSite.Models
 				BirthDate = "September 22, 1791",
 				DeathDate = "August 25, 1867",
 				Children = 0,
-				RecognizedFor = "Physics and Chemistry",
+				RecognizedFor = "Physics, Chemistry",
 			};
 			People.Add(person6);
 		}
