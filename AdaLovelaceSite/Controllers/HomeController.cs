@@ -10,6 +10,9 @@ namespace AdaLovelaceSite.Controllers
 {
 	public class HomeController : Controller
 	{
+		User user;
+		Score score;
+
 		public IActionResult Index()
 		{
 			return View();

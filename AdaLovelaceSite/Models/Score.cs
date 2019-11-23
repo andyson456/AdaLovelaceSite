@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace AdaLovelaceSite.Models
 {
-	public class ResultsModel
+	public class Score
 	{
+		public Guid ScoreKey { get; set; }
 		public string Answer { get; set; }
-		public int Total { get; set; }
+		public int ScoreTotal { get; set; }
 	}
 }
