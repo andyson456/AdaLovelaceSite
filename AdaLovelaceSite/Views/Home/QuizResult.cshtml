@@ -1,7 +1,16 @@
-﻿
+﻿@model List<User>
+
 @{
     ViewData["Title"] = "QuizResult";
 }
 
-<h1>QuizResult</h1>
+<h1>Quiz Results</h1>
+
+@{
+    foreach (User user in Model)
+    {
+        <h3>Congratulations @user.UserName, you got /5 answers correct!</h3>
+    }
+}
+
 

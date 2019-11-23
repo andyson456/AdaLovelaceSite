@@ -30,7 +30,8 @@ namespace AdaLovelaceSite.Controllers
 
 		public IActionResult QuizResult()
 		{
-			return View();
+			List<User> users = UserRepository.Users;
+			return View(users);
 		}
 
 		[HttpGet]
@@ -40,8 +41,13 @@ namespace AdaLovelaceSite.Controllers
 		}
 
 		[HttpPost]
-		public RedirectToActionResult QuizPage(string something)
+		public RedirectToActionResult QuizPage(string name, int score, string pubdate)
 		{
+			user = new User();
+			user.UserKey = Guid.NewGuid();
+			user.UserName = name;
+			UserRepository.AddUser(user);
+
 			return RedirectToAction("QuizResult");
 		}
 

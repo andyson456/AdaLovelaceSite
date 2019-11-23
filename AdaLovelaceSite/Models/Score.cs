@@ -10,5 +10,6 @@ namespace AdaLovelaceSite.Models
 		public Guid ScoreKey { get; set; }
 		public string Answer { get; set; }
 		public int ScoreTotal { get; set; }
+		public DateTime Date { get; set; } = DateTime.Now;
 	}
 }
