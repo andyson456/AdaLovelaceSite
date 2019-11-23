@@ -25,9 +25,21 @@ namespace AdaLovelaceSite.Controllers
 			return View();
 		}
 
+		public IActionResult QuizResult()
+		{
+			return View();
+		}
+
+		[HttpGet]
 		public IActionResult QuizPage()
 		{
 			return View();
+		}
+
+		[HttpPost]
+		public RedirectToActionResult QuizPage(string something)
+		{
+			return RedirectToAction("QuizResult");
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
