@@ -5,12 +5,14 @@
 }
 
 <h1>Quiz Results</h1>
+<button onclick="window.location.href='QuizPage'">Try Again</button><br /><br />
 
 @{
     foreach (User user in Model)
     {
         <div class="card" style="width: 18rem;">
-            <h3>Congratulations @user.UserName, you got @user.Score/5 answers correct!</h3>
+            <h3>Congratulations <i>@user.UserName</i>!</h3> 
+            <h4>You got @user.Score/5 answers correct!</h4>
         </div>
     }
 }
