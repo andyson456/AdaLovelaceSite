@@ -1,4 +1,10 @@
-﻿
+﻿<script type="text/javascript">
+    window.setTimeout(function () {
+        window.location.href = 'RedirectToQuizPage';
+    }, 10000);
+</script>
+
+
 @{
     ViewData["Title"] = "QuizPage";
 }
@@ -11,57 +17,68 @@
     <label for="Name" asp-validation-for="Name">Username: </label>
     <input name="Name" /><br /><br />
 
-    <label for="RightAnswer" asp-validation-for="Name">1. In what year was Lovelace's 'Note G' published? </label>
-    <input name="RightAnswer" />
-    <br />
-    <label for="RightAnswer2" asp-validation-for="Name">2. How many children did Charles Babbage have? </label>
-    <input name="RightAnswer2" />
-    <br />
-    <label for="RightAnswer3" asp-validation-for="Name">3. What prototype was concieved before the Analytical Engine? </label>
-    <input name="RightAnswer3" />
-    <br />
-    <label for="RightAnswer4" asp-validation-for="Name">4. What was Andrew Crosse widely recognized for? </label>
-    <input name="RightAnswer4" />
-    <br />
-    <label for="RightAnswer5" asp-validation-for="Name">5. What numbers were used to come up with the algorithm of the Analytical Engine? </label>
-    <input name="RightAnswer5" />
-    <br /><br />
-
-    @*<p class="question">1. In what year was Lovelace's 'Note G' published?</p>
-    @Html.RadioButton("Question1", "1841") 1841 <br />
-    @Html.RadioButton("Question1", "1843") 1843 <br />
-    @Html.RadioButton("Question1", "1839") 1839 <br />
-    @Html.RadioButton("Question1", "1845") 1845 <br /><br />
-
-    <p class="question">2. How many children did Charles Babbage have?</p>
-    @Html.RadioButton("Question2", "8") 8 <br />
-    @Html.RadioButton("Question2", "0") 0 <br />
-    @Html.RadioButton("Question2", "1") 1 <br />
-    @Html.RadioButton("Question2", "5") 5 <br /><br />
-
-    <p class="question">3. What prototype was concieved before the Analytical Engine?</p>
-    @Html.RadioButton("Question3", "Addition") Addition <br />
-    @Html.RadioButton("Question3", "Multiplication") Multiplication <br />
-    @Html.RadioButton("Question3", "Difference") Difference <br />
-    @Html.RadioButton("Question3", "Division") Division <br /><br />
-
-    <p class="question">4. What was Andrew Crosse widely recognized for?</p>
-    @Html.RadioButton("Question4", "Political Science") Political Science <br />
-    @Html.RadioButton("Question4", "Philosophy") Philosophy <br />
-    @Html.RadioButton("Question4", "Mathematics") Mathematics <br />
-    @Html.RadioButton("Question4", "Electrocrystillization") Electrocrystillization <br /><br />
-
-    <p class="question">5. What numbers were used to come up with the algorithm of the Analytical Engine?</p>
-    @Html.RadioButton("Question5", "Raviolli Numbers") Raviolli Numbers <br />
-    @Html.RadioButton("Question5", "Ratatouille Numbers") Ratatouille Numbers <br />
-    @Html.RadioButton("Question5", "Bernoulli Numbers") Bernoulli Numbers <br />
-    @Html.RadioButton("Question5", "Eulerian Numbers") Eulerian Numbers <br /><br />*@
+        <div class="card" style="width: 20rem; height: auto">
+            <label for="RightAnswer" asp-validation-for="Name">1. In what year was Lovelace's 'Note G' published? </label>
+            <input name="RightAnswer" />
+        </div>
+        <br />
+        <div class="card" style="width: 20rem; height: auto">
+            <label for="RightAnswer2" asp-validation-for="Name">2. How many children did Charles Babbage have? </label>
+            <input name="RightAnswer2" />
+        </div>
+        <br />
+        <div class="card" style="width: 20rem; height: auto">
+            <label for="RightAnswer3" asp-validation-for="Name">3. What prototype was concieved before the Analytical Engine? </label>
+            <input name="RightAnswer3" />
+        </div>
+        <br />
+        <div class="card" style="width: 20rem; height: auto">
+            <label for="RightAnswer4" asp-validation-for="Name">4. What was Andrew Crosse widely recognized for? </label>
+            <input name="RightAnswer4" />
+        </div>
+        <br />
+        <div class="card" style="width: 20rem; height: auto">
+            <label for="RightAnswer5" asp-validation-for="Name">5. What numbers were used to come up with the algorithm of the Analytical Engine? </label>
+            <input name="RightAnswer5" />
+        </div>
+        <br /><br />
 
 
+            @*<p class="question">1. In what year was Lovelace's 'Note G' published?</p>
+        @Html.RadioButton("Question1", "1841") 1841 <br />
+        @Html.RadioButton("Question1", "1843") 1843 <br />
+        @Html.RadioButton("Question1", "1839") 1839 <br />
+        @Html.RadioButton("Question1", "1845") 1845 <br /><br />
 
-    <input type="submit" value="Submit Answers" />
-</div>
-}
+        <p class="question">2. How many children did Charles Babbage have?</p>
+        @Html.RadioButton("Question2", "8") 8 <br />
+        @Html.RadioButton("Question2", "0") 0 <br />
+        @Html.RadioButton("Question2", "1") 1 <br />
+        @Html.RadioButton("Question2", "5") 5 <br /><br />
+
+        <p class="question">3. What prototype was concieved before the Analytical Engine?</p>
+        @Html.RadioButton("Question3", "Addition") Addition <br />
+        @Html.RadioButton("Question3", "Multiplication") Multiplication <br />
+        @Html.RadioButton("Question3", "Difference") Difference <br />
+        @Html.RadioButton("Question3", "Division") Division <br /><br />
+
+        <p class="question">4. What was Andrew Crosse widely recognized for?</p>
+        @Html.RadioButton("Question4", "Political Science") Political Science <br />
+        @Html.RadioButton("Question4", "Philosophy") Philosophy <br />
+        @Html.RadioButton("Question4", "Mathematics") Mathematics <br />
+        @Html.RadioButton("Question4", "Electrocrystillization") Electrocrystillization <br /><br />
+
+        <p class="question">5. What numbers were used to come up with the algorithm of the Analytical Engine?</p>
+        @Html.RadioButton("Question5", "Raviolli Numbers") Raviolli Numbers <br />
+        @Html.RadioButton("Question5", "Ratatouille Numbers") Ratatouille Numbers <br />
+        @Html.RadioButton("Question5", "Bernoulli Numbers") Bernoulli Numbers <br />
+        @Html.RadioButton("Question5", "Eulerian Numbers") Eulerian Numbers <br /><br />*@
+
+
+
+            <input type="submit" value="Submit Answers" />
+        </div>
+    }
 
 
 

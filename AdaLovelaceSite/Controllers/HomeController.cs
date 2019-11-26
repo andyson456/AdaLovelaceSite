@@ -54,13 +54,13 @@ namespace AdaLovelaceSite.Controllers
 				user.Score = score;
 			}
 
-			if (rightAnswer2 == "8")
+			if (rightAnswer2 == "8" | rightAnswer2 == "Eight" | rightAnswer2 == "eight")
 			{
 				score++;
 				user.Score = score;
 			}
 
-			if (rightAnswer3 == "The Difference Engine")
+			if (rightAnswer3 == "The Difference Engine" | rightAnswer3 == "Difference Engine")
 			{
 				score++;
 				user.Score = score;
@@ -72,7 +72,7 @@ namespace AdaLovelaceSite.Controllers
 				user.Score = score;
 			}
 
-			if (rightAnswer5 == "Bernoulli Numbers")
+			if (rightAnswer5 == "Bernoulli Numbers" | rightAnswer5 == "The Bernoulli Numbers")
 			{
 				score++;
 				user.Score = score;
@@ -81,6 +81,11 @@ namespace AdaLovelaceSite.Controllers
 			UserRepository.AddUser(user);
 
 			return RedirectToAction("QuizResult");
+		}
+
+		public IActionResult RedirectToQuizPage()
+		{
+			return View();
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
