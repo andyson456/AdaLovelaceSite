@@ -8,13 +8,10 @@ namespace AdaLovelaceSite.Models
 {
 	public class User
 	{
-		private List<Score> userScores = new List<Score>();
-
+		public int UserID { get; set; }
 		public Guid UserKey { get; set; }
 		[Required]
 		public string UserName { get; set; }
 		public int Score { get; set; }
-
-		public List<Score> UserScores { get { return userScores; } }
 	}
 }

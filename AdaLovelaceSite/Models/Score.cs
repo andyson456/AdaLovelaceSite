@@ -7,6 +7,7 @@ namespace AdaLovelaceSite.Models
 {
 	public class Score
 	{
+		public int ScoreID { get; set; }
 		public Guid ScoreKey { get; set; }
 		public string Answer { get; set; }
 		public string RightAnswer { get; set; }

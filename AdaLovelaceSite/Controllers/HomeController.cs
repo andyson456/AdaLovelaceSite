@@ -21,6 +21,26 @@ namespace AdaLovelaceSite.Controllers
 			return View();
 		}
 
+		public IActionResult AndrewCrosse()
+		{
+			return View();
+		}
+
+		public IActionResult CharlesBabbage()
+		{
+			return View();
+		}
+
+		public IActionResult DavidBrewster()
+		{
+			return View();
+		}
+
+		public IActionResult CharlesWheatstone()
+		{
+			return View();
+		}
+
 		public IActionResult SignificantPeople()
 		{
 			return View();
