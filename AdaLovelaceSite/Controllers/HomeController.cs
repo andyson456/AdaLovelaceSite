@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AdaLovelaceSite.Models;
 
@@ -28,9 +26,11 @@ namespace AdaLovelaceSite.Controllers
 			return View();
 		}
 
-		public IActionResult QuizResult()
+		public IActionResult QuizResult(Microsoft.AspNetCore.Http.IFormCollection frm)
 		{
 			List<User> users = UserRepository.Users;
+			string radio = frm["Question1"].ToString();
+			ViewData["radio"] = radio;
 			return View(users);
 		}
 
@@ -41,11 +41,43 @@ namespace AdaLovelaceSite.Controllers
 		}
 
 		[HttpPost]
-		public RedirectToActionResult QuizPage(string name, int score, string pubdate)
+		public RedirectToActionResult QuizPage(string name, int score, string rightAnswer, string rightAnswer2,
+					string rightAnswer3, string rightAnswer4, string rightAnswer5)
 		{
 			user = new User();
 			user.UserKey = Guid.NewGuid();
 			user.UserName = name;
+
+			if (rightAnswer == "1843")
+			{
+				score++;
+				user.Score = score;
+			}
+
+			if (rightAnswer2 == "8")
+			{
+				score++;
+				user.Score = score;
+			}
+
+			if (rightAnswer3 == "The Difference Engine")
+			{
+				score++;
+				user.Score = score;
+			}
+
+			if (rightAnswer4 == "Electrocrystallization")
+			{
+				score++;
+				user.Score = score;
+			}
+
+			if (rightAnswer5 == "Bernoulli Numbers")
+			{
+				score++;
+				user.Score = score;
+			}
+
 			UserRepository.AddUser(user);
 
 			return RedirectToAction("QuizResult");

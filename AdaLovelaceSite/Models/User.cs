@@ -11,6 +11,7 @@ namespace AdaLovelaceSite.Models
 
 		public Guid UserKey { get; set; }
 		public string UserName { get; set; }
+		public int Score { get; set; }
 
 		public List<Score> UserScores { get { return userScores; } }
 	}

@@ -9,7 +9,9 @@
 @{
     foreach (User user in Model)
     {
-        <h3>Congratulations @user.UserName, you got /5 answers correct!</h3>
+        <div class="card" style="width: 18rem;">
+            <h3>Congratulations @user.UserName, you got @user.Score/5 answers correct!</h3>
+        </div>
     }
 }
 
