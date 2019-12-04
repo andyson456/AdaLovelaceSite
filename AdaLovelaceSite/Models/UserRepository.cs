@@ -1,18 +1,26 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace AdaLovelaceSite.Models
 {
-	public static class UserRepository
+	public class UserRepository : IUserRepository
 	{
-		private static List<User> users = new List<User>();
-		public static List<User> Users { get { return users; } }
+		private AppDbContext context;
 
-		public static void AddUser(User user)
+		public List<User> Users { get { return context.Users.ToList(); } }
+
+		public UserRepository(AppDbContext appDbContext)
 		{
-			Users.Add(user);
+			context = appDbContext;
+		}
+
+		public void AddUser(User user)
+		{
+			context.Users.Add(user);
+			context.SaveChanges();
 		}
 	}
 }

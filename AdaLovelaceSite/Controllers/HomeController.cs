@@ -10,6 +10,12 @@ namespace AdaLovelaceSite.Controllers
 	{
 		User user;
 		Score score;
+		IUserRepository repo;
+
+		public HomeController(IUserRepository r)
+		{
+			repo = r;
+		}
 
 		public IActionResult Index()
 		{
@@ -48,7 +54,7 @@ namespace AdaLovelaceSite.Controllers
 
 		public IActionResult QuizResult(Microsoft.AspNetCore.Http.IFormCollection frm)
 		{
-			List<User> users = UserRepository.Users;
+			List<User> users = repo.Users;
 			string radio = frm["Question1"].ToString();
 			ViewData["radio"] = radio;
 			return View(users);
@@ -98,7 +104,7 @@ namespace AdaLovelaceSite.Controllers
 				user.Score = score;
 			}
 
-			UserRepository.AddUser(user);
+			repo.AddUser(user);
 
 			return RedirectToAction("QuizResult");
 		}
