@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AdaLovelaceSite.Models;
+﻿using AdaLovelaceSite.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace AdaLovelaceSite
 {
 	public class Startup
 	{
-		public Startup(IConfiguration configuration)
+		public Startup(IConfiguration configuration, IHostingEnvironment env)
 		{
 			Configuration = configuration;
+			environment = env;
 		}
 
 		public IConfiguration Configuration { get; }
+		private IHostingEnvironment environment;
 
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
@@ -38,12 +36,15 @@ namespace AdaLovelaceSite
 
 			services.AddTransient<IUserRepository, UserRepository>();
 
-			services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
-				Configuration["ConnectionStrings:ConnectionString"]));
+			services.AddEntityFrameworkSqlServer();
+
+				services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
+					Configuration["ConnectionStrings:ConnectionString"]));
+			
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, AppDbContext context)
 		{
 			if (env.IsDevelopment())
 			{
@@ -66,6 +67,8 @@ namespace AdaLovelaceSite
 					name: "default",
 					template: "{controller=Home}/{action=Index}/{id?}");
 			});
+
+			context.Database.Migrate();	
 		}
 	}
 }
