@@ -13,5 +13,8 @@ namespace AdaLovelaceSite.Models
 		[Required]
 		public string UserName { get; set; }
 		public int Score { get; set; }
+
+		//[Display(Name = "Post Date"), DataType(DataType.Date)]
+		//public DateTime PostDate { get; set; } = DateTime.Now;
 	}
 }
