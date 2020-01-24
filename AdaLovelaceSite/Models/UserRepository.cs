@@ -10,14 +10,14 @@ namespace AdaLovelaceSite.Models
 	{
 		private AppDbContext context;
 
-		public List<User> Users { get { return context.Users.ToList(); } }
+		public List<AppUser> Users { get { return context.Users.ToList(); } }
 
 		public UserRepository(AppDbContext appDbContext)
 		{
 			context = appDbContext;
 		}
 
-		public void AddUser(User user)
+		public void AddUser(AppUser user)
 		{
 			context.Users.Add(user);
 			context.SaveChanges();

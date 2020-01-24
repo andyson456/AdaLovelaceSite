@@ -7,7 +7,7 @@ namespace AdaLovelaceSite.Models
 {
 	public interface IUserRepository
 	{
-		List<User> Users { get; }
-		void AddUser(User user);
+		List<AppUser> Users { get; }
+		void AddUser(AppUser user);
 	}
 }

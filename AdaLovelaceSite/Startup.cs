@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.AspNetCore.Identity;
 
 namespace AdaLovelaceSite
 {
@@ -40,7 +41,9 @@ namespace AdaLovelaceSite
 
 				services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
 					Configuration["ConnectionStrings:ConnectionString"]));
-			
+
+			services.AddIdentity<AppUser, IdentityRole>()
+				.AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +64,8 @@ namespace AdaLovelaceSite
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
 
+			app.UseAuthentication();
+
 			app.UseMvc(routes =>
 			{
 				routes.MapRoute(
@@ -68,7 +73,7 @@ namespace AdaLovelaceSite
 					template: "{controller=Home}/{action=Index}/{id?}");
 			});
 
-			context.Database.Migrate();	
+			context.Database.Migrate();
 		}
 	}
 }
